@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire de Cadastre</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Ajouter un Cadastre</h1>
+    <form id="cadastreForm" action="submit_cadastre.php" method="post">
+        <label for="numero_parcelle">Numéro de Parcelle:</label>
+        <input type="text" id="numero_parcelle" name="numero_parcelle" required>
+        
+        <label for="propriete_id">ID Propriété:</label>
+        <input type="text" id="propriete_id" name="propriete_id" required>
+        
+        <label for="surface_parcelle">Surface de la Parcelle:</label>
+        <input type="text" id="surface_parcelle" name="surface_parcelle">
+        
+        <label for="type_terrain">Type de Terrain:</label>
+        <input type="text" id="type_terrain" name="type_terrain">
+        
+        <input type="submit" value="Ajouter">
+    </form>
+    
+    <p><a href="tableau_cadastre.html">Voir les cadastres enregistrés</a></p>
+</body>
+</html>

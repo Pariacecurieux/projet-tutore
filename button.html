@@ -1,0 +1,110 @@
+<!-- la page pour les boutons -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>SYSTEME DE GESTION DE L'ELECTRICITE</title>
+    <link rel="stylesheet" href="stylecss/style.css">
+</head>
+<body style="height: 120vh;">
+    <header>
+    <h1>SYSTEME DE GESTION DE L'ELECTRICITE</h1>
+    <p style="margin-top: -15px;">Activer ou Désactiver les ampoules ou les prises comme vous voulez </p>
+         
+         <div class="mesPages">
+             <a href="index.html" class="lien1"><h2  style="color: white;">Accueil</h2></a>
+           
+    </header>
+    <!-- une fois le bouton est activé; cette action est dirigée vers la le fichier update.php
+     vu que intialement les etats sont intialiement a 0 -->
+
+
+     <script>
+        function updateDisplay(id, etat) {
+            var displayElement = document.getElementById('display' + id);
+            if (etat == 1) {
+    displayElement.innerHTML = 'Allumer';
+    displayElement.style.marginLeft = '110px'; // Add inline style
+    displayElement.style.marginTop = '10px';
+  } else {
+    displayElement.innerHTML = 'Éteins';
+    displayElement.style.marginLeft = '110px'; // Add inline style
+    displayElement.style.marginTop = '10px';
+  }
+}
+        document.addEventListener('DOMContentLoaded', function() {
+            var forms = document.querySelectorAll('form');
+            forms.forEach(function(form) {
+                form.addEventListener('submit', function(event) {
+                    event.preventDefault();
+                    var id = this.querySelector('input[name="id"]').value;
+                    var etat = this.querySelector('button[type="submit"][name="etat"]:focus').value;
+                    updateDisplay(id, etat);
+
+                    // Envoyer la requête POST via AJAX
+                    var xhr = new XMLHttpRequest();
+                    xhr.open('POST', this.action, true);
+                    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                    xhr.onload = function() {
+                        if (xhr.status === 200) {
+                            console.log('Mise à jour réussie');
+                        } else {
+                            console.error('Erreur lors de la mise à jour');
+                        }
+                    };
+                    xhr.send('id=' + id + '&etat=' + etat);
+                });
+            });
+        });
+    </script>
+    
+    <div class="contenu">
+        <div class="prises">
+            
+            <div class="priseSal">
+                <h2><span>Prise du salon</span></h2><br>
+                <form method="POST" action="#">
+                    <input type="hidden" name="id" value="1">
+                    <button type="submit" name="etat" value="1">ON</button>
+                    <button type="submit" name="etat" value="0">OFF</button>
+                </form>
+                <div id="display1"></div>
+            </div>
+            <div class="priseCh">
+                <h2><span>Prise chambre</span></h2><br>
+                <form method="POST" action="update.php">
+                    <input type="hidden" name="id" value="2">
+                    <button type="submit" name="etat" value="1">ON</button>
+                    <button type="submit" name="etat" value="0">OFF</button> 
+                </form>
+                <div id="display2"></div>
+            </div>
+        </div>
+        <div class="lampes">   
+            <div class="LampeMaison">
+                <h2><span>Lampe Maison</span></h2><br>
+                <form method="POST" action="update.php">
+                    <input type="hidden" name="id" value="3">
+                    <button type="submit" name="etat" value="1">ON</button>
+                    <button type="submit" name="etat" value="0">OFF</button>
+                </form>
+                <div id="display3"></div>
+            </div>
+            <div class="LampExt">
+                <h2><span>Lampe exterieur</span></h2><br>
+                <form method="POST" action="update.php">
+                    <input type="hidden" name="id" value="4">
+                    <button type="submit" name="etat" value="1">ON</button>
+                    <button type="submit" name="etat" value="0">OFF</button>
+                </form>
+                <div id="display4"></div>
+            </div>
+        </div> 
+    </div>
+    
+</body>
+</html>
+

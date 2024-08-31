@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire de Consultation</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h2>Formulaire de Consultation</h2>
+    <form action="enregistrer_consultation.php" method="post">
+        <label for="date_consultation">Date et Heure de la Consultation :</label>
+        <input type="datetime-local" id="date_consultation" name="date_consultation" required><br><br>
+
+        <label for="propriete_id">ID de la Propriété :</label>
+        <select id="propriete_id" name="propriete_id" required>
+            <!-- Les options seront chargées ici par AJAX -->
+        </select><br><br>
+
+        <input type="submit" value="Soumettre">
+    </form>
+
+    <br>
+    <a href="tableau.html">Voir les Enregistrements de Consultation</a>
+
+    <script>
+        // Charger les options de propriétés via AJAX
+        window.onload = function() {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'obtenir_proprietes.php', true);
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                    document.getElementById('propriete_id').innerHTML = xhr.responseText;
+                } else {
+                    alert('Erreur lors du chargement des propriétés.');
+                }
+            };
+            xhr.send();
+        };
+    </script>
+</body>
+</html>

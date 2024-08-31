@@ -1,0 +1,61 @@
+<!-- la page pour engergidtrer les energies achetée-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>achat energie</title>
+    <link rel="stylesheet" href="stylecss/style.css">
+</head>
+<body>
+    <header>
+        <h1>SYSTEME GESTION DE L'ENERGIE</h1>
+            <div class="mesPages">
+                <a href="index.html" class="lien1"><h2  style="color: white;">Accueil</h2></a>
+             <a href="button.html" class="lien2"><h2  style="color: white;">Actions</h2></a>
+             <a href="consomation.html" class="lien3"><h2  style="color: white;">Consomation</h2></a>
+             <a href="achatEnergie.html" class="lien5"><h2  style="color: white;">Achats</h2></a>
+             <a href="rapport.html" class="lien4"><h2  style="color: white;">Historique l'achats</h2></a>
+             <a href="Alerte.html" class="lien7"><h2  style="color: white;">Alerte</h2></a>
+             <a href="index.html" class="lien8"><h2  style="color: white;">Deconnexion</h2></a>
+             </div>
+        </header>
+    
+    <div class="achat">
+        <h2>Entrer Énergie Achetée</h2>
+        
+            
+            <form action="" method="post">
+                <table>
+                    <tr>
+                        <td> <label for="numcarte" style="margin-left: -200px;">Numéro carte</label></td>
+                            <td><input type="text" name="numcarte" placeholder="Entrez le Numéro de la carte..." required style="width: 500px;"></td>
+                        </tr>
+                    <tr>
+                        <td><label for="energieAch" style="margin-left: -200px;">Énergie Achetée en Kwh</label></td>
+                        <td><input type="text" name="energieAch" placeholder="Entrez le nombre de Kilowatts..." required style="width: 500px;"></td>
+                    </tr>
+                    <tr>
+                    <td> <label for="prix" style="margin-left: -200px;">Prix en $</label></td>
+                        <td><input type="text" name="prix" placeholder="Entrez le montant en $..." required style="width: 500px;"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="date" style="margin-left: -200px;">Date et Heure</label></td>
+                        <td><input type="date" name="temps" required style="width: 500px;"></td>
+                    </tr>
+                </table>
+                    <div class="enreg">
+                        <input type="submit" name="submit" value="Enregistrer" style="background-color: rgba(105, 25, 25, 0.699); color:white;">
+                    </div>
+                      
+             </form>
+
+           
+        
+       
+                
+    </div>
+            
+        
+</body>
+</html>

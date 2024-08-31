@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire de Propriétés</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Ajouter une Propriété</h1>
+    <form id="propertyForm" action="submit.php" method="post">
+        <label for="adresse">Adresse:</label>
+        <input type="text" id="adresse" name="adresse" required>
+        
+        <label for="quartier">Quartier:</label>
+        <input type="text" id="quartier" name="quartier">
+        
+        <label for="latitude">Latitude:</label>
+        <input type="text" id="latitude" name="latitude">
+        
+        <label for="longitude">Longitude:</label>
+        <input type="text" id="longitude" name="longitude">
+        
+        <label for="proprietaire_id">Propriétaire ID:</label>
+        <input type="text" id="proprietaire_id" name="proprietaire_id">
+        
+        <input type="submit" value="Ajouter">
+    </form>
+    
+    <p><a href="tablpr.html">Voir les propriétés enregistrées</a></p>
+</body>
+</html>
